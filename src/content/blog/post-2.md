@@ -1,17 +1,18 @@
 ---
-title: Building an Impressive Front-End Developer Portfolio
+title: Building an Impressive Front-End Developer Portfolio Today
 excerpt: In the competitive world of front-end development, a strong portfolio is your ticket to showcasing your skills, making a lasting impression on potential employers or clients, and advancing your career.
-publishDate: 'October 5 2023'
+publishDate: October 5 2023
 tags:
   - Web
-  - Web development
+  - Web
+  - development
 seo:
   image:
-    src: '/post-2.jpg'
+    src: /post-2.jpg
     alt: Half open laptop on a desk
 ---
 
-![Half open laptop on a desk](/post-2.jpg)
+![Half open laptop on a desk](../../assets/images/post-2.jpg)
 
 **Note:** This post was created using Chat GPT to demonstrate the features of the _[Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/)_.
 

@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const letters = await getCollection('letters');
+---
+
+<BaseLayout title="Letters Index" description="A collection of letters">
+    <h1 class="mb-12 text-2xl font-serif italic">Letters</h1>
+    <ul>
+        {
+            letters.map((letter) => (
+                <li class="mb-4">
+                    <a href={`/letters/${letter.slug}`} class="text-main hover:underline">
+                        {letter.slug}Letter 1
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</BaseLayout>

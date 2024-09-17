@@ -38,9 +38,9 @@ export type SiteConfig = {
 };
 
 const siteConfig: SiteConfig = {
-    title: 'Dante',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    title: 'Mandalivia',
+    subtitle: 'A personal website',
+    description: 'Website and Portfolio',
     image: {
         src: '/dante-preview.jpg',
         alt: 'Dante - Astro.js and Tailwind CSS theme'
@@ -50,50 +50,47 @@ const siteConfig: SiteConfig = {
             text: 'Home',
             href: '/'
         },
+        // {
+        //     text: 'Projects',
+        //     href: '/projects'
+        // },
+        // {
+        //     text: 'Blog',
+        //     href: '/blog'
+        // },
         {
-            text: 'Projects',
-            href: '/projects'
-        },
-        {
-            text: 'Blog',
-            href: '/blog'
-        },
-        {
-            text: 'Tags',
-            href: '/tags'
+            text: 'Letters',
+            href: '/letters'
         }
     ],
     footerNavLinks: [
-        {
-            text: 'About',
-            href: '/about'
-        },
-        {
-            text: 'Contact',
-            href: '/contact'
-        },
-        {
-            text: 'Terms',
-            href: '/terms'
-        },
-        {
-            text: 'Download theme',
-            href: 'https://github.com/JustGoodUI/dante-astro-theme'
-        }
+        // {
+        //     text: 'About',
+        //     href: '/about'
+        // },
+        // {
+        //     text: 'Contact',
+        //     href: '/contact'
+        // },
+        // {
+        //     text: 'Terms',
+        //     href: '/terms'
+        // }
+
     ],
     socialLinks: [
-        {
-            text: 'Dribbble',
-            href: 'https://dribbble.com/'
-        },
-        {
-            text: 'Instagram',
-            href: 'https://instagram.com/'
-        },
-        {
-            text: 'X/Twitter',
-            href: 'https://twitter.com/'
-        }
+        // {
+        //     text: 'Dribbble',
+        //     href: 'https://dribbble.com/'
+        // },
+        // {
+        //     text: 'Instagram',
+        //     href: 'https://instagram.com/'
+        // },
+        // {
+        //     text: 'X/Twitter',
+        //     href: 'https://twitter.com/'
+        // }
     ],
     hero: {
         title: 'Hi There & Welcome to My Corner of the Web!',
@@ -110,7 +107,7 @@ const siteConfig: SiteConfig = {
         ]
     },
     subscribe: {
-        title: 'Subscribe to Dante Newsletter',
+        title: 'Subscribe to Newsletter',
         text: 'One update per week. All the latest posts directly in your inbox.',
         formUrl: '#'
     },

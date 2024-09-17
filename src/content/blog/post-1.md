@@ -10,7 +10,7 @@ seo:
     alt: A person standing at the window
 ---
 
-![A person standing at the window](/post-1.jpg)
+![A person standing at the window](../../assets/images/post-1.jpg)
 
 **Note:** This post was created using Chat GPT to demonstrate the features of the _[Dante Astro.js theme functionality](https://justgoodui.com/astro-themes/dante/)_.
 

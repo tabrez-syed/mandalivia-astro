@@ -24,6 +24,16 @@ const blog = defineCollection({
     })
 });
 
+const letters = defineCollection({
+    schema: z.object({
+        title: z.string().optional(),
+        publishDate: z.coerce.date(),
+        excerpt: z.string().optional(),
+        image: z.string().optional(),
+        seo: seoSchema.optional()
+    })
+});
+
 const pages = defineCollection({
     schema: z.object({
         title: z.string(),
@@ -41,4 +51,4 @@ const projects = defineCollection({
     })
 });
 
-export const collections = { blog, pages, projects };
+export const collections = { blog, pages, projects, letters };

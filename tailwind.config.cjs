@@ -5,7 +5,7 @@ module.exports = {
     darkMode: 'class',
     theme: {
         fontFamily: {
-            sans: ['Inter', ...defaultTheme.fontFamily.sans],
+            sans: ['Avenir', ...defaultTheme.fontFamily.sans],
             serif: ['Newsreader', ...defaultTheme.fontFamily.serif]
         },
         extend: {
@@ -81,5 +81,11 @@ module.exports = {
             })
         }
     },
-    plugins: [require('@tailwindcss/typography')]
+    plugins: [require('@tailwindcss/typography'),
+        function({ addBase, theme }) {
+                       addBase({
+                           'html': { fontSize: '18px' },
+                       })
+                   }
+    ]
 };
