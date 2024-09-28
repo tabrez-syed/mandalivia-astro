@@ -8,6 +8,8 @@ import Subscribe from '../../components/Subscribe.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import LetterPreview from '../../components/LetterPreview.astro';
+import { Image } from 'astro:assets';
+import defaultImage from '../../assets/images/globe.png'; // Make sure to add a default image
 
 export async function getStaticPaths() {
     const posts = (await getCollection('letters')).sort(sortItemsByDateDesc);
@@ -26,11 +28,20 @@ type Props = { post: CollectionEntry<'letters'>; prevPost: CollectionEntry<'lett
 
 const { href } = Astro.url;
 const { post, prevPost, nextPost } = Astro.props;
-const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
+const { title, publishDate, updatedDate, excerpt, tags = [], seo, image } = post.data;
 const { Content } = await post.render();
+
+// Use the post's image if available, otherwise use the default image
+const displayImage = image ?? defaultImage;
 ---
 
-<BaseLayout title={seo?.title ?? title} description={seo?.description ?? excerpt} image={seo?.image} pageType="article" showHeader={false}>
+<BaseLayout
+    title={seo?.title ?? title}
+    description={seo?.description ?? excerpt}
+    image={typeof seo?.image === 'string' ? { src: seo.image } : seo?.image ?? { src: displayImage.src }}
+    pageType="article"
+    showHeader={false}
+>
     <article class="mb-16 sm:mb-24">
         <header class="mb-8">
             <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
@@ -48,6 +59,7 @@ const { Content } = await post.render();
                 }
             </div>
         </header>
+        <Image src={displayImage} alt={`Image for ${title}`} width={800} height={400} class="mb-8 rounded-lg shadow-md" />
         <div class="max-w-none prose prose-dante sm:prose-lg">
             <Content />
         </div>

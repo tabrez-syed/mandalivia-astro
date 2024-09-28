@@ -25,11 +25,13 @@ const blog = defineCollection({
 });
 
 const letters = defineCollection({
-    schema: z.object({
+    schema: ({ image }) => z.object({
         title: z.string().optional(),
         publishDate: z.coerce.date(),
-        excerpt: z.string().optional(),
-        image: z.string().optional(),
+        updatedDate: z.coerce.date().optional(),
+        excerpt: z.string().optional().nullable(),
+        image: image().optional().nullable(),
+        tags: z.array(z.string()).default([]),
         seo: seoSchema.optional()
     })
 });
