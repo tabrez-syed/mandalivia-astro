@@ -2,6 +2,7 @@
 publishDate: 2024-08-16
 rating: 
 title: Working Week
+image: ../../assets/images/2024-08-16-working-week-20240816045743974.webp
 ---
 ![center|300](../../assets/images/2024-08-16-working-week-20240816045743974.webp)
 

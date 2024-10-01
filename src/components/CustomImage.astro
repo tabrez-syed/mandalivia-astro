@@ -1,0 +1,18 @@
+---
+import { Image } from 'astro:assets';
+
+const { src, alt, width, align } = Astro.props;
+
+const style = align === 'center' ? 'margin-left: auto; margin-right: auto;' : align === 'right' ? 'margin-left: auto;' : '';
+const widthAttr = width ? parseInt(width) : undefined;
+---
+
+console.log("Custom image being called")
+<Image
+    src={src}
+    alt={alt || ''}
+    width={widthAttr}
+    height={widthAttr ? 'auto' : undefined}
+    style={style}
+    class={`rounded-lg shadow-md ${align ? `float-${align}` : ''}`}
+/>

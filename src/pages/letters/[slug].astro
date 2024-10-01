@@ -9,6 +9,7 @@ import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 import LetterPreview from '../../components/LetterPreview.astro';
 import { Image } from 'astro:assets';
+import CustomImage from '../../components/CustomImage.astro';
 import defaultImage from '../../assets/images/globe.png'; // Make sure to add a default image
 
 export async function getStaticPaths() {
@@ -59,7 +60,7 @@ const displayImage = image ?? defaultImage;
                 }
             </div>
         </header>
-        <Image src={displayImage} alt={`Image for ${title}`} width={800} height={400} class="mb-8 rounded-lg shadow-md" />
+        <!-- <Image src={displayImage} alt={`Image for ${title}`} width={800} height={400} class="mb-8 rounded-lg shadow-md" /> -->
         <div class="max-w-none prose prose-dante sm:prose-lg">
             <Content />
         </div>

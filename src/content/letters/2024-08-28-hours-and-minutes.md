@@ -3,6 +3,7 @@ publishDate: 2024-08-28
 rating: 9
 title: Hours and Minutes
 excerpt: This letter highlights how each day of the week is connected to a specific heavenly body, with Monday being associated with the Moon, Tuesday with Mars, and so on, as observed by ancient Babylonians who created the seven-day week.
+image: ../../assets/images/2024-08-28-hours-and-minutes-20240828055001501.webp
 ---
 
 ![center|300](../../assets/images/2024-08-28-hours-and-minutes-20240828055001501.webp)
