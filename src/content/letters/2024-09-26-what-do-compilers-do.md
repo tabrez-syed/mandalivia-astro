@@ -1,9 +1,9 @@
 ---
 publishDate: 2024-09-26
 rating: 
-excerpt: 
+excerpt: Ever wondered how computers understand us? Discover how a magical translator turns our words into a secret language of 1s and 0s!
 title: What Compilers Do
-image:
+image: ../../assets/images/2024-09-26-what-do-compilers-do-20240926060316370.webp
 ---
 
 

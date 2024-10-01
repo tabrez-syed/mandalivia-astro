@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-09-18
 rating: 2
-excerpt: Discover the fascinating history behind Earth's changing year length and how our Moon has influenced it.
+excerpt: Did you know a year on Earth used to be over 400 days long? Discover how our planet's dance with the Moon changed time itself!
 title: How long is a year
 image: ../../assets/images/2024-09-18-how-long-is-a-year-20240918060104348.webp
 ---

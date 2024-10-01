@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         fontFamily: {
             sans: ['Avenir', ...defaultTheme.fontFamily.sans],
-            serif: ['Newsreader', ...defaultTheme.fontFamily.serif]
+            serif: ['Lora', ...defaultTheme.fontFamily.serif]
         },
         extend: {
             textColor: {
@@ -81,11 +81,12 @@ module.exports = {
             })
         }
     },
-    plugins: [require('@tailwindcss/typography'),
-        function({ addBase, theme }) {
-                       addBase({
-                           'html': { fontSize: '18px' },
-                       })
-                   }
+    plugins: [
+        require('@tailwindcss/typography'),
+        function ({ addBase, theme }) {
+            addBase({
+                html: { fontSize: '18px' }
+            });
+        }
     ]
 };

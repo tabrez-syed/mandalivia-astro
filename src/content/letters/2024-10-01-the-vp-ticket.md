@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-10-01
 rating: 6
-excerpt: 
+excerpt: Ever wonder why the president and vice president always seem to agree? Uncover the constitutional tweak that changed American politics forever!
 title: The VP Ticket
 image: ../../assets/images/2024-10-01-what-does-a-vp-do-20241001060214484.webp
 ---

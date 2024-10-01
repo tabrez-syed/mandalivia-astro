@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-09-30
 rating: 9
-excerpt: 
+excerpt: Can TV ads shape what we believe? Uncover the secrets of becoming an information detective and learn to spot truth from fiction!
 title: Are ads fact checked?
 image: ../../assets/images/2024-09-30-are-ads-fact-checked-20240930060237174.webp
 ---

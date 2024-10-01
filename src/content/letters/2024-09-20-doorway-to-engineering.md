@@ -3,7 +3,7 @@ publishDate: 2024-09-20
 rating: 
 excerpt: Discover the hidden engineering principles behind everyday doors and how they impact safety.
 title: Doorway to engineering
-image:
+image: ../../assets/images/2024-09-20-doorway-to-engineering-20240920055107578.webp
 ---
 ![center|300](../../assets/images/2024-09-20-doorway-to-engineering-20240920055107578.webp)
 

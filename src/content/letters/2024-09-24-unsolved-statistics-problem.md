@@ -3,7 +3,7 @@ publishDate: 2024-09-24
 rating: 
 excerpt: "The Power of Curiosity and Persistence: Lessons from George Bernard Dantzig's Unsolved Statistical Problems"
 title: Unsolved Statistics Problem
-image:
+image: ../../assets/images/2024-09-24-20240924052627199.webp
 ---
 ![center|300](../../assets/images/2024-09-24-20240924052627199.webp)
 

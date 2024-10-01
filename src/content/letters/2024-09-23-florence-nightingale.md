@@ -3,7 +3,7 @@ publishDate: 2024-09-23
 rating: 2
 excerpt: Florence Nightingale used statistics and visual representation to prove the importance of improved sanitation in military hospitals, leading to major reforms and saving countless lives.
 title: Florence Nightingale
-image:
+image: ../../assets/images/2023-09-23-florence-nightingalge-20240923054245800.webp
 ---
 ![center|300](../../assets/images/2023-09-23-florence-nightingalge-20240923054245800.webp)
 

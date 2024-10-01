@@ -1,7 +1,7 @@
 ---
 publishDate: 2024-09-27
 rating: 8
-excerpt: 
+excerpt: A simple card could help you remember things better! Learn the secret trick that can make your mind a memory master!
 title: Flash Cards
 image: ../../assets/images/2024-09-27-flash-cards-20240927055911480.webp
 ---
