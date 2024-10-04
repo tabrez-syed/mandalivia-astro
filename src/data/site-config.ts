@@ -35,6 +35,7 @@ export type SiteConfig = {
     subscribe?: Subscribe;
     postsPerPage?: number;
     projectsPerPage?: number;
+    essaysPerPage: number; // Add this line
 };
 
 const siteConfig: SiteConfig = {
@@ -61,6 +62,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Letters',
             href: '/letters'
+        },
+        {
+            text: 'Essays',
+            href: '/essays'
         }
     ],
     footerNavLinks: [
@@ -112,7 +117,8 @@ const siteConfig: SiteConfig = {
         formUrl: '#'
     },
     postsPerPage: 8,
-    projectsPerPage: 8
+    projectsPerPage: 8,
+    essaysPerPage: 8
 };
 
 export default siteConfig;

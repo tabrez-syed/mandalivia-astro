@@ -1,0 +1,41 @@
+---
+import { type CollectionEntry, getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EssayPreview from '../../components/EssayPreview.astro';
+import { sortItemsByDateDesc } from '../../utils/data-utils';
+
+export async function getStaticPaths() {
+    const essays = (await getCollection('essays')).sort(sortItemsByDateDesc);
+    return essays.map((essay) => ({
+        params: { slug: essay.slug },
+        props: { essay }
+    }));
+}
+
+type Props = { essay: CollectionEntry<'essays'> };
+
+const { essay } = Astro.props;
+const { title, description, seo } = essay.data;
+const { Content } = await essay.render();
+
+// Get other essays in the same folder for navigation
+const allEssays = await getCollection('essays');
+const currentEssayFolder = essay.slug.split('/')[0];
+const relatedEssays = allEssays.filter((e) => e.slug.startsWith(currentEssayFolder) && e.slug !== essay.slug).sort(sortItemsByDateDesc);
+
+// Find prev and next essays (optional, based on your navigation needs)
+const essayIndex = allEssays.findIndex((e) => e.slug === essay.slug);
+const prevEssay = essayIndex < allEssays.length - 1 ? allEssays[essayIndex + 1] : null;
+const nextEssay = essayIndex > 0 ? allEssays[essayIndex - 1] : null;
+---
+
+<BaseLayout title={seo?.title ?? title} description={seo?.description ?? description} image={seo?.image} pageType="article" showHeader={false}>
+    <article class="mb-16 sm:mb-24">
+        <header class="mb-8">
+            <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{title}</h1>
+        </header>
+        <div class="max-w-none prose prose-dante sm:prose-lg">
+            <Content />
+        </div>
+    </article>
+</BaseLayout>

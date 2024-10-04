@@ -6,6 +6,7 @@ import Hero from '../components/Hero.astro';
 import PostPreview from '../components/PostPreview.astro';
 import LetterPreview from '../components/LetterPreview.astro';
 import ProjectPreview from '../components/ProjectPreview.astro';
+import EssayPreview from '../components/EssayPreview.astro';
 import siteConfig from '../data/site-config';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 
@@ -14,6 +15,11 @@ const featuredPosts = posts.filter(({ data }) => data.isFeatured);
 
 const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
 const featuredProjects = projects.filter(({ data }) => data.isFeatured);
+
+const allEssays = await getCollection('essays');
+const mainEssays = allEssays.filter((essay) => !essay.slug.includes('/'));
+const sortedEssays = mainEssays.sort(sortItemsByDateDesc);
+const featuredEssays = sortedEssays.filter(({ data }) => data.isFeatured);
 
 const letters = (await getCollection('letters')).sort(sortItemsByDateDesc);
 const featuredLetters = letters.slice(0, 10);
@@ -56,6 +62,20 @@ const featuredLetters = letters.slice(0, 10);
                 ))}
                 <div class="mt-12 sm:mt-16">
                     <Button href="/letters">View All Letters</Button>
+                </div>
+            </div>
+        )
+    }
+
+    {
+        featuredEssays?.length > 0 && (
+            <div class="mb-16 sm:mb-24">
+                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Essays</h2>
+                {featuredEssays.map((essay) => (
+                    <EssayPreview essay={essay} class="mb-10 sm:mb-12" headingLevel="h3" />
+                ))}
+                <div class="mt-12 sm:mt-16">
+                    <Button href="/essays">View All Essays</Button>
                 </div>
             </div>
         )
