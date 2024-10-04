@@ -5,7 +5,7 @@ excerpt: Florence Nightingale used statistics and visual representation to prove
 title: Florence Nightingale
 image: ../../assets/images/2023-09-23-florence-nightingalge-20240923054245800.webp
 ---
-![center|300](../../assets/images/2023-09-23-florence-nightingalge-20240923054245800.webp)
+![center|500](../../assets/images/2023-09-23-florence-nightingalge-20240923054245800.webp)
 
 Rea,
 

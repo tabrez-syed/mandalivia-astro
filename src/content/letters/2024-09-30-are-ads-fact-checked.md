@@ -5,7 +5,7 @@ excerpt: Can TV ads shape what we believe? Uncover the secrets of becoming an in
 title: Are ads fact checked?
 image: ../../assets/images/2024-09-30-are-ads-fact-checked-20240930060237174.webp
 ---
-![center|300](../../assets/images/2024-09-30-are-ads-fact-checked-20240930060237174.webp)
+![center|500](../../assets/images/2024-09-30-are-ads-fact-checked-20240930060237174.webp)
 
 Rea,
 

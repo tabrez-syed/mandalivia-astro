@@ -6,7 +6,7 @@ title: Why did Europeans want to go to India?
 image: ../../assets/images/2024-09-17-why-did-europeans-want-to-go-to-india-20240917061100062.webp
 ---
 
-![center|300](../../assets/images/2024-09-17-why-did-europeans-want-to-go-to-india-20240917061100062.webp)
+![center|500](../../assets/images/2024-09-17-why-did-europeans-want-to-go-to-india-20240917061100062.webp)
 
 Dear Rea,
 

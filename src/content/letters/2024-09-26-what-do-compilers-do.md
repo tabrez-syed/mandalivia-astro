@@ -7,7 +7,7 @@ image: ../../assets/images/2024-09-26-what-do-compilers-do-20240926060316370.web
 ---
 
 
-![center|300](../../assets/images/2024-09-26-what-do-compilers-do-20240926060316370.webp)
+![center|500](../../assets/images/2024-09-26-what-do-compilers-do-20240926060316370.webp)
 
 
 Rea
