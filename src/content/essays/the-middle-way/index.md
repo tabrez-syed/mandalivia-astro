@@ -8,7 +8,6 @@ seo:
     alt: Project preview
 isFeatured: true
 ---
-
 > [!QUOTE] Goldilocks and the three bears
 > 
 > *She lay down in the first bed, but it was too hard.* 
