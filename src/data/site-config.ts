@@ -66,6 +66,10 @@ const siteConfig: SiteConfig = {
         {
             text: 'Essays',
             href: '/essays'
+        },
+        {
+            text: 'About',
+            href: '/about'
         }
     ],
     footerNavLinks: [
