@@ -2,7 +2,7 @@
 publishDate: 2024-10-17
 rating: 
 excerpt: Discover how a simple checklist can supercharge your memory and become a powerful tool for your mind!
-title: Tools for Thought
+title: "Tools for Thought: Expanding Your Mind's Reach"
 image: ../../assets/images/2024-10-17-tools-for-thought-20241017054513563.webp
 ---
 ![center|500](../../assets/images/2024-10-17-tools-for-thought-20241017054513563.webp)

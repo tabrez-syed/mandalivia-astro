@@ -1,11 +1,14 @@
 ---
-title: 'EcoBuddy: Sustainable Living App'
+title: "EcoBuddy: Sustainable Living App"
 description: EcoBuddy is a mobile app that gamifies sustainable living. Users can set eco-friendly goals, track their carbon footprint, and earn virtual rewards for adopting environmentally conscious habits.
-publishDate: 'Jan 02 2024'
+publishDate: Jan 02 2024
 seo:
   image:
-    src: '/project-1.jpg'
+    src: /project-1.jpg
     alt: Project preview
+banner: https://images.unsplash.com/photo-1728763424935-8d2901c74515?q=80&w=3432&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D
+banner_y: 0.608
+banner_lock: true
 ---
 
 ![Project preview](../../assets/images/project-1.jpg)
