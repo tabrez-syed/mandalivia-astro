@@ -1,0 +1,52 @@
+---
+layout: '../../layouts/BaseLayout.astro'
+title: 'Your Title'
+description: 'Your Description'
+---
+import Hero from '../../components/Hero.astro';
+import ParallaxHero from '@/components/ParallaxHero.astro';
+import heroImage from '@/assets/images/hero.jpeg';
+
+import PullQuote from '@/components/PullQuote.astro';
+
+
+<ParallaxHero
+    title="The Art of Meditation"
+    subtitle="A journey into mindfulness"
+    image={heroImage.src}
+>
+   
+    <p>Your content here...</p>
+</ParallaxHero>
+
+<Hero 
+  title="The Art of Meditation"
+  subtitle="A journey into mindfulness"
+  image={heroImage.src}
+/>
+
+## Your Content Starts Here
+
+Rest of your content...
+
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+- more content.
+
+
+
+<PullQuote 
+  quote="Life is what happens while you're busy making other plans"
+  author="John Lennon"
+/>

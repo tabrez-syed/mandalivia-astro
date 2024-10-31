@@ -1,29 +1,57 @@
 ---
-import { marked } from 'marked';
-import Button from './Button.astro';
-import siteConfig from '../data/site-config';
+interface Props {
+    title: string;
+    subtitle?: string;
+    image?: string;
+}
 
-const hero = siteConfig.hero;
+const { title, subtitle, image } = Astro.props;
 ---
 
-{
-    (hero?.title || hero?.image?.src || hero?.text || (hero?.actions && hero.actions.length > 0)) && (
-        <section class="w-full flex flex-col gap-8 mb-16 sm:mb-24">
-            {hero.title && <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{hero.title}</h1>}
-            {hero.image?.src && (
-                <figure>
-                    <img class="w-full" src={hero.image.src} loading="lazy" decoding="async" alt={hero.image.alt || ''} />
-                    {hero.image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{hero.image.caption}</figcaption>}
-                </figure>
-            )}
-            {hero.text && <div class="max-w-none prose prose-dante sm:prose-lg" set:html={marked.parse(hero.text)} />}
-            {hero.actions && hero.actions.length > 0 && (
-                <div class="flex flex-wrap gap-4">
-                    {hero.actions.map((action) => (
-                        <Button href={action.href}>{action.text}</Button>
-                    ))}
-                </div>
-            )}
-        </section>
-    )
-}
+<section class="relative min-h-[60vh] flex items-center">
+    {
+        image && (
+            <div class="absolute inset-0 z-0">
+                <img src={image} alt="" class="object-cover w-full h-full opacity-80" />
+                <div class="absolute inset-0 bg-black/30" />
+            </div>
+        )
+    }
+
+    <div class="container mx-auto px-4 relative z-10 animate-content">
+        <h1 class="text-5xl md:text-6xl font-bold text-white fade-element">
+            {title}
+        </h1>
+        {subtitle && <p class="text-xl md:text-2xl mt-4 text-white/90 fade-element delay">{subtitle}</p>}
+    </div>
+</section>
+
+<style>
+    .fade-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+    }
+
+    .delay {
+        transition-delay: 0.3s;
+    }
+
+    .animate-content.visible .fade-element {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle('visible', entry.isIntersecting);
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.animate-content').forEach((el) => observer.observe(el));
+</script>

@@ -1,0 +1,43 @@
+---
+interface Props {
+    quote: string;
+    author?: string;
+}
+
+const { quote, author } = Astro.props;
+---
+
+<section class="py-16 md:py-32 bg-slate-50 dark:bg-slate-900">
+    <div class="container mx-auto px-4 md:px-6">
+        <blockquote class="max-w-3xl mx-auto text-2xl md:text-3xl font-serif slide-element text-slate-800 dark:text-slate-200">
+            "{quote}"
+            {author && <cite class="block mt-4 text-lg md:text-xl text-slate-600 dark:text-slate-400">— {author}</cite>}
+        </blockquote>
+    </div>
+</section>
+
+<style>
+    .slide-element {
+        opacity: 0;
+        transform: translateX(-50px);
+        transition: all 0.8s ease-out;
+    }
+
+    .slide-element.visible {
+        opacity: 1;
+        transform: translateX(0);
+    }
+</style>
+
+<script>
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle('visible', entry.isIntersecting);
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.slide-element').forEach((el) => observer.observe(el));
+</script>

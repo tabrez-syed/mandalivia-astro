@@ -1,0 +1,97 @@
+---
+interface Props {
+    title: string;
+    subtitle?: string;
+    image: string;
+}
+
+const { title, subtitle, image } = Astro.props;
+---
+
+<section class="relative overflow-hidden">
+    <div class="min-h-[90vh] relative">
+        <div class="sticky top-0 h-screen parallax-container">
+            <div class="absolute inset-0 will-change-transform" data-parallax>
+                <img src={image} alt="" class="w-full h-full object-cover" loading="eager" decoding="async" />
+                <div class="absolute inset-0 bg-black/30"></div>
+            </div>
+        </div>
+
+        <div class="absolute inset-0 flex items-center">
+            <div class="container mx-auto px-4 relative z-10 animate-content">
+                <h1 class="text-5xl md:text-7xl font-bold text-white fade-element">
+                    {title}
+                </h1>
+                {subtitle && <p class="text-xl md:text-2xl mt-4 text-white/90 fade-element delay">{subtitle}</p>}
+            </div>
+        </div>
+    </div>
+
+    <div class="relative z-10 bg-white dark:bg-slate-900 rounded-t-[3rem] -mt-20">
+        <div class="container mx-auto px-4 pt-32">
+            <slot />
+        </div>
+    </div>
+</section>
+
+<style>
+    .parallax-container {
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .fade-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+    }
+
+    .delay {
+        transition-delay: 0.3s;
+    }
+
+    .animate-content.visible .fade-element {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    // Intersection Observer for fade-in animation
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle('visible', entry.isIntersecting);
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.animate-content').forEach((el) => observer.observe(el));
+
+    // Parallax effect using requestAnimationFrame for better performance
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    let ticking = false;
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+
+        parallaxElements.forEach((el) => {
+            const speed = 0.5;
+            const yPos = -(scrolled * speed);
+            el.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        });
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateParallax();
+            });
+            ticking = true;
+        }
+    });
+</script>
+
