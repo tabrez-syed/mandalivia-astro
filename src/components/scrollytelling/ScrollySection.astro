@@ -1,0 +1,38 @@
+---
+interface Props {
+    image?: string;
+    imagePosition?: 'left' | 'right' | 'full';
+    className?: string;
+}
+
+const { image, imagePosition = 'full', className = '' } = Astro.props;
+---
+
+<section class:list={['scrolly-section full-width relative', 'min-h-screen', 'mt-[-20vh]', className]}>
+    {
+        image && (
+            <div class="absolute inset-0 w-full h-full">
+                <img src={image} alt="" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+        )
+    }
+    <div
+        class:list={[
+            'absolute z-10 max-w-7xl mx-auto px-4 md:px-8 animate-content',
+            {
+                'w-full': imagePosition === 'full',
+                'md:w-1/2 md:ml-auto': imagePosition === 'left',
+                'md:w-1/2': imagePosition === 'right'
+            }
+        ]}
+    >
+        <slot />
+    </div>
+</section>
+
+<style>
+    .scrolly-section {
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+</style>

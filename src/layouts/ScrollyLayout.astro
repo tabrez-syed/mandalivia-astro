@@ -1,0 +1,51 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import BaseHead, { type Props as HeadProps } from '../components/BaseHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+export type Props = HeadProps;
+
+const { ...head } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="antialiased break-words">
+    <head>
+        <BaseHead {...head} />
+        <script>
+            if (localStorage.theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        </script>
+        <script src="../scripts/posthog.ts"></script>
+        <ViewTransitions />
+    </head>
+    <body class="bg-main text-main">
+        <Nav />
+        <main class="w-full">
+            <slot />
+        </main>
+        <Footer />
+    </body>
+</html>
+
+<style>
+    /* Add any global styles specific to scrollytelling here */
+    :global(.full-width) {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
+
+    :global(.scrolly-section) {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+</style>

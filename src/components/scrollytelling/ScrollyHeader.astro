@@ -1,0 +1,99 @@
+---
+// ScrollyHeader.astro
+interface Props {
+    backgroundImage: string;
+    headerContent: string;
+    bodyContent: string;
+    overlayColor?: string;
+    alignment?: 'center' | 'left' | 'right';
+    theme?: 'light' | 'dark';
+    parallaxSpeed?: number;
+}
+
+const {
+    backgroundImage,
+    headerContent,
+    bodyContent,
+    overlayColor = 'rgba(0,0,0,0.4)',
+    alignment = 'center',
+    theme = 'dark',
+    parallaxSpeed = 0.5
+} = Astro.props;
+---
+
+<section class:list={['w-full min-h-[100vh]', 'bg-cover bg-center relative overflow-hidden', `text-${theme === 'dark' ? 'white' : 'black'}`]}>
+    <div class="absolute inset-0 w-full h-full" data-parallax style={`--parallax-speed: ${parallaxSpeed};`}>
+        <img src={backgroundImage} alt="" class="w-full h-full object-cover" loading="eager" style="min-height: 120vh;" />
+        <div class="absolute inset-0" style={`background: ${overlayColor}; min-height: 120vh;`}></div>
+    </div>
+
+    <div class:list={['absolute inset-x-0', 'top-[40vh]', 'p-8', `text-${alignment}`, 'animate-content']}>
+        <div class="max-w-7xl mx-auto">
+            <h1 class="text-[5vw] md:text-[8vw] font-bold fade-element">
+                {headerContent}
+            </h1>
+            <p class="text-[3vw] md:text-[4vw] fade-element delay">
+                {bodyContent}
+            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    [data-parallax] {
+        transform: translateY(0);
+        transition: transform 0.1s ease-out;
+    }
+
+    .fade-element {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s ease-out;
+    }
+
+    .delay {
+        transition-delay: 0.3s;
+    }
+
+    .animate-content.visible .fade-element {
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
+
+<script>
+    // Intersection Observer for fade-in animation
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                entry.target.classList.toggle('visible', entry.isIntersecting);
+            });
+        },
+        { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.animate-content').forEach((el) => observer.observe(el));
+
+    // Parallax effect
+    const parallaxElements = document.querySelectorAll('[data-parallax]');
+    let ticking = false;
+
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+
+        parallaxElements.forEach((el) => {
+            const speed = parseFloat(getComputedStyle(el).getPropertyValue('--parallax-speed'));
+            const yPos = -(scrolled * speed);
+            el.style.transform = `translateY(${yPos}px)`;
+        });
+
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    });
+</script>

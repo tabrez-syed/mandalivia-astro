@@ -1,52 +1,52 @@
 ---
-layout: '../../layouts/BaseLayout.astro'
-title: 'Your Title'
-description: 'Your Description'
+layout: '../../layouts/ScrollyLayout.astro'
+title: 'The Art of Meditation'
+description: 'A journey into mindfulness'
 ---
-import Hero from '../../components/Hero.astro';
-import ParallaxHero from '@/components/ParallaxHero.astro';
-import heroImage from '@/assets/images/hero.jpeg';
-
+import ScrollyHeader from '@/components/scrollytelling/ScrollyHeader.astro';
+import ScrollySection from '@/components/scrollytelling/ScrollySection.astro';
 import PullQuote from '@/components/PullQuote.astro';
+import heroImage from '@/assets/images/essays/meditation/meditation-hero.jpg';
 
 
-<ParallaxHero
-    title="The Art of Meditation"
-    subtitle="A journey into mindfulness"
+<ScrollyHeader 
+    backgroundImage={heroImage.src}
+    headerContent="The Art of Meditation"
+    bodyContent="A journey into mindfulness"
+/>
+
+
+<ScrollySection 
     image={heroImage.src}
+    imagePosition="left"
 >
-   
-    <p>Your content here...</p>
-</ParallaxHero>
+    <div class="bg-white/90 dark:bg-black/90 p-8 rounded-lg backdrop-blur-sm">
+        <h2 class="text-3xl font-bold mb-4">The Journey Begins</h2>
+        <p class="mb-4">
+            Once, a university professor visited a famous Zen master, hoping to learn about Zen. However, as soon as they sat down, the professor began talking non-stop about his own ideas and opinions on Zen. He spoke of all the books he had read and the concepts he had studied, barely pausing for breath.
 
-<Hero 
-  title="The Art of Meditation"
-  subtitle="A journey into mindfulness"
-  image={heroImage.src}
-/>
+The Zen master listened patiently and then said, "Shall we have some tea?" The professor nodded, still continuing his lecture
 
-## Your Content Starts Here
+The master poured the visitor's cup to the brim and then kept pouring. The professor watched the overflowing cup until he could no longer restrain himself.
 
-Rest of your content...
+"It's full! No more will go in!" the professor burst out.
 
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
-- more content.
+"Like this cup," the master replied, "you are full of your own opinions and speculations. How can I show you Zen unless you first empty your cup?"
+        </p>
+        <p class="mb-4">
+            Continue your story...
+        </p>
+    </div>
+</ScrollySection>
 
-
-
-<PullQuote 
-  quote="Life is what happens while you're busy making other plans"
-  author="John Lennon"
-/>
+<ScrollySection className="bg-main">
+    <div class="max-w-prose mx-auto text-center">
+        <PullQuote 
+            quote="Life is what happens while you're busy making other plans"
+            author="John Lennon"
+        />
+        <p class="mt-8">
+            Your concluding content here...
+        </p>
+    </div>
+</ScrollySection>
