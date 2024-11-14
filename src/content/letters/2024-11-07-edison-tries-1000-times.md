@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-11-07
-rating: 
+rating: 6
 excerpt: What if failure was the key to success? Thomas Edison's 1,000 attempts to create a lasting light bulb reveal the power of persistence and systematic problem-solving.
 title: "Edison's Lightbulb Moment: 1,000 Tries to Illumination"
 image: ../../assets/images/2024-11-07-edison-tries-1000-times.webp

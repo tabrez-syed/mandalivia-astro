@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-11-05
-rating: 
+rating: 9
 excerpt: A newspaper printed the wrong election winner. Learn how this mistake became a famous moment in American politics.
 title: The Headline That Got It Wrong
 image: ../../assets/images/2024-11-05-dewey-defeats-truman-20241105054816018.webp
