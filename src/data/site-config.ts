@@ -55,18 +55,18 @@ const siteConfig: SiteConfig = {
         //     text: 'Projects',
         //     href: '/projects'
         // },
-        // {
-        //     text: 'Blog',
-        //     href: '/blog'
-        // },
+        {
+            text: 'Wonderings',
+            href: '/blog'
+        },
         {
             text: 'Letters',
             href: '/letters'
         },
-        {
-            text: 'Essays',
-            href: '/essays'
-        },
+        // {
+        //     text: 'Essays',
+        //     href: '/essays'
+        // },
         {
             text: 'About',
             href: '/about'
