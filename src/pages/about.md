@@ -1,6 +1,6 @@
 ---
 title: About Us
-layout: ../layouts/BaseLayout.astro
+layout: ../layouts/MarkdownLayout.astro
 showHeader: false
 ---
 
@@ -21,8 +21,8 @@ now grown but still dreaming, established this virtual embassy of imagination.
 
 Today, Mandalivia hosts two main attractions:
 
-- Letters: Daily dispatches to his daughter, building bridges across time
-- Wonderings: A collection of thoughts, like seashells gathered along
+- [Letters](/letters): Daily dispatches to his daughter, building bridges across time
+- [Wonderings](/blog): A collection of thoughts, like seashells gathered along
   the shore of consciousness
 
 This website, like the imaginary island that inspired it, remains in a
