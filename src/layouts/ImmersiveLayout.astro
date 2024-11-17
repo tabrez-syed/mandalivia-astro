@@ -1,21 +1,25 @@
 ---
-import BaseHead, { type Props as HeadProps } from '../components/BaseHead.astro';
+import BaseLayout from './BaseLayout.astro';
 
-export type Props = HeadProps;
+interface Props {
+    title: string;
+    description?: string;
+    image?: { src: string; alt?: string };
+}
 
-const { ...head } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead {...head} />
-    </head>
-    <body>
-        <!-- Debug indicator -->
-        <div style="position: fixed; top: 0; right: 0; background: red; color: white; padding: 4px;">Immersive Layout</div>
-        <main>
-            <slot />
-        </main>
-    </body>
-</html>
+<BaseLayout title={title} description={description} image={image} showHeader={false}>
+    <main class="min-h-screen">
+        <slot />
+    </main>
+</BaseLayout>
+
+<style>
+    :global(body) {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+</style>

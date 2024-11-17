@@ -3,9 +3,18 @@ title: "Lost Boy Fireflies"
 excerpt: "An interactive haiku experience exploring youth and wonder"
 publishDate: "2024-03-21"
 isFeatured: true
-tags: ["interactive", "poetry", "experience"]
-layout: ../../layouts/ImmersiveLayout.astro
+tags: []
 ---
-Hello World
+import ImmersiveQuote from '@/components/ImmersiveQuote.astro';
+import lostBoyImage from '@/assets/wonderings/fireflies.webp';
 
-We have the basics working. Now build from here.
+<ImmersiveQuote
+  backgroundImage={lostBoyImage}
+  imageAlt="A teenage boy in a dark forest surrounded by fireflies"
+  lines={[
+    "The lost child,",
+    "crying, crying",
+    "still chasing fireflies"
+  ]}
+/>
+

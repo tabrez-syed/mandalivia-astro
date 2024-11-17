@@ -10,4 +10,5 @@ seo:
     src: /post-14.jpg
     alt: Wavy lines
 ---
+
 My goal with this is simple. Just get started. The idea is to force myself to polish my collected ideas enough to get them out. Otherwise I sit in elaborate procrastination about getting them out.

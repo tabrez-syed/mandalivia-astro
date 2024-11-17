@@ -4,6 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import { remarkCustomImage } from './src/remark-custom-image.mjs';
 import { remarkObsidianCallouts } from './src/remark-obsidian-callouts.mjs';
+import path from 'path';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +18,12 @@ export default defineConfig({
     ],
     markdown: {
         remarkPlugins: [remarkCustomImage, remarkObsidianCallouts]
+    },
+    vite: {
+        resolve: {
+            alias: {
+                '@': path.resolve('./src')
+            }
+        }
     }
 });

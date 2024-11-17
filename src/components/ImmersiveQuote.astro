@@ -1,0 +1,104 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    backgroundImage: ImageMetadata;
+    imageAlt?: string;
+    lines: string[];
+    blackoutPercentage?: number;
+}
+
+const { backgroundImage, imageAlt = 'Background image', lines = [], blackoutPercentage = 0 } = Astro.props;
+---
+
+<div class="relative aspect-video max-w-5xl mx-auto my-12">
+    <!-- Polaroid Frame -->
+    <div class="bg-white p-4 shadow-2xl rounded-sm rotate-1 transition-transform hover:rotate-0 duration-300">
+        <!-- Image Container -->
+        <div class="relative overflow-hidden">
+            <Image src={backgroundImage} alt={imageAlt} class="object-cover w-full aspect-video" />
+
+            {blackoutPercentage > 0 && <div class="absolute inset-0 bg-black" style={`opacity: ${blackoutPercentage / 100}`} />}
+
+            <!-- Text Overlay -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center text-white text-center p-4">
+                <div class="space-y-8 font-['Noto_Serif'] text-2xl sm:text-4xl" data-parallax-container>
+                    {
+                        lines.map((line, index) => (
+                            <p
+                                class="opacity-0 transform translate-y-4 transition-all duration-1000 font-['Dancing_Script']"
+                                data-quote-line
+                                style={`transition-delay: ${index * 200}ms`}
+                            >
+                                {line}
+                            </p>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Polaroid Bottom -->
+        <div class="mt-4 h-16 flex items-center justify-center">
+            <div class="text-slate-500 font-['Dancing_Script'] text-xl rotate-[-2deg]">
+                {new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        // Fade in animation
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const element = entry.target as HTMLElement;
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            },
+            {
+                threshold: 0.1
+            }
+        );
+
+        document.querySelectorAll('[data-quote-line]').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Parallax scroll effect with constraints
+        const parallaxContainer = document.querySelector('[data-parallax-container]');
+        if (parallaxContainer) {
+            window.addEventListener('scroll', () => {
+                const container = parallaxContainer.closest('.relative') as HTMLElement;
+                if (!container) return;
+
+                const containerRect = container.getBoundingClientRect();
+                const containerTop = containerRect.top;
+                const containerHeight = containerRect.height;
+                const viewportHeight = window.innerHeight;
+
+                // Only apply parallax when container is in view
+                if (containerTop < viewportHeight && containerTop > -containerHeight) {
+                    const scrollProgress = (viewportHeight - containerTop) / (viewportHeight + containerHeight);
+                    const lines = parallaxContainer.querySelectorAll('[data-quote-line]');
+
+                    lines.forEach((line, index) => {
+                        const element = line as HTMLElement;
+                        const speed = 0.2 + index * 0.1; // Different speed for each line
+                        const maxMove = 50; // Maximum pixels to move
+                        const movement = Math.min(maxMove, scrollProgress * 100 * speed);
+                        element.style.transform = `translateY(${movement}px)`;
+                    });
+                }
+            });
+        }
+    });
+</script>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+</style>
