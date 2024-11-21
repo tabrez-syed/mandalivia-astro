@@ -33,6 +33,8 @@ const letters = defineCollection({
         excerpt: z.string().optional().nullable(),
         image: image().optional().nullable(),
         tags: z.array(z.string()).default([]),
+        rating: z.number().optional().nullable(),
+        review: z.string().optional().nullable(),
         seo: seoSchema.optional()
     })
 });
