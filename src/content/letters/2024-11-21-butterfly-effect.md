@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-11-21
-rating: 
+rating: 9
 review: 
 excerpt: You know those tiny decimal numbers you're learning about, like 0.00001? They might seem too small to matter, but sometimes the tiniest changes can change everything. Here's the story of how a scientist discovered the surprising power of small things.
 title: The Butterfly Effect
