@@ -1,7 +1,7 @@
 ---
-publishDate: 2024-03-21
+publishDate: 2024-11-18
 rating: 10
-review: 
+review:
 excerpt: Can you imagine a time when thousands of people couldn't stop dancing? In 1518, a mysterious "dance fever" swept through a city, revealing fascinating insights about how our minds and behaviors can influence each other.
 title: The Dancing Fever Mystery
 image: ../../assets/images/2024-11-18-dancing-plague.webp

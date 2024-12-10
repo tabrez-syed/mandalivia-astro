@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-12-04
-rating: 
+rating: 6
 review: 
 excerpt: How would you react if a boat crashed into yours, but there was no one to blame? The story of the empty boat teaches us about the nature of anger and finding peace in unexpected ways.
 title: The Lesson of the Empty Boat
