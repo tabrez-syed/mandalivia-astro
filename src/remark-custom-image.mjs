@@ -2,40 +2,53 @@ import { visit } from 'unist-util-visit';
 
 export function remarkCustomImage() {
     return (tree) => {
-        visit(tree, 'image', (node) => {
-            const parts = (node.alt || '').split('|');
-            let alt, align, width;
+        visit(tree, 'text', (node, index, parent) => {
+            const regex = /!\[\[(.*?)\]\]/;
+            const match = node.value.match(regex);
 
-            if (parts.length === 1) {
-                [alt] = parts;
-            } else if (parts.length === 2) {
-                [align, width] = parts;
-            } else if (parts.length >= 3) {
-                [alt, align, width] = parts;
+            if (match) {
+                const parts = match[1].split('|').map((part) => part.trim());
+                const [imagePath, align, dimensions] = parts;
+
+                // Create image node
+                const imageNode = {
+                    type: 'image',
+                    url: imagePath,
+                    alt: '',
+                    data: {
+                        hProperties: {
+                            class: ['rounded-lg', 'shadow-md']
+                        }
+                    }
+                };
+
+                // Handle alignment
+                if (align === 'center') {
+                    imageNode.data.hProperties.class.push('mx-auto', 'block');
+                } else if (align === 'left') {
+                    imageNode.data.hProperties.class.push('float-left', 'mr-4');
+                } else if (align === 'right') {
+                    imageNode.data.hProperties.class.push('float-right', 'ml-4');
+                }
+
+                // Handle dimensions
+                if (dimensions) {
+                    const [width, height] = dimensions.split('x');
+                    if (width) {
+                        imageNode.data.hProperties.width = width;
+                        imageNode.data.hProperties.class.push(`max-w-[${width}px]`);
+                    }
+                    if (height) {
+                        imageNode.data.hProperties.height = height;
+                    }
+                }
+
+                // Join classes with space
+                imageNode.data.hProperties.class = imageNode.data.hProperties.class.join(' ');
+
+                // Replace text node with image node
+                parent.children[index] = imageNode;
             }
-
-            node.alt = alt || '';
-            node.data = node.data || {};
-            node.data.hProperties = node.data.hProperties || {};
-
-            let classes = ['rounded-lg', 'shadow-md'];
-
-            if (align === 'center') {
-                classes.push('mx-auto', 'block');
-            } else if (align === 'left') {
-                classes.push('float-left', 'mr-4');
-            } else if (align === 'right') {
-                classes.push('float-right', 'ml-4');
-            }
-
-            if (width) {
-                node.data.hProperties.width = width;
-                // Add responsive width classes
-                classes.push(`max-w-[${width}px]`);
-            }
-
-            node.data.hProperties.class = classes.join(' ');
-            console.log(node);
         });
     };
 }
