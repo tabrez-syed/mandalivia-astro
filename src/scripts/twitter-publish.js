@@ -110,6 +110,11 @@ async function parseThreadFile(filePath) {
             throw new Error('Invalid frontmatter format');
         }
 
+        // Check if thread was already published
+        if (parsedContent.data['publish-date']) {
+            throw new Error(`Thread was already published on ${parsedContent.data['publish-date']}`);
+        }
+
         // Validate image if present
         const imagePath = parsedContent.data.image;
         const validatedImagePath = await validateImage(imagePath);
@@ -198,8 +203,33 @@ function confirmPosting(tweets, imagePath) {
     });
 }
 
+// Update frontmatter with publish date
+async function updatePublishDate(filePath) {
+    try {
+        const content = await fs.readFile(filePath, 'utf-8');
+        const parsedContent = matter(content);
+
+        // Get current date in YYYY-MM-DD format
+        const today = new Date();
+        const publishDate = today.toISOString().split('T')[0];
+
+        // Add publish-date to frontmatter
+        parsedContent.data['publish-date'] = publishDate;
+
+        // Convert back to string with frontmatter
+        const updatedContent = matter.stringify(parsedContent.content, parsedContent.data);
+
+        // Write back to file
+        await fs.writeFile(filePath, updatedContent);
+        console.log('✓ Added publish date to frontmatter\n');
+    } catch (error) {
+        console.error('Error updating publish date:', error.message);
+        // Don't throw error as this is not critical to the posting process
+    }
+}
+
 // Post thread
-async function postThread(tweets, imagePath) {
+async function postThread(tweets, imagePath, filePath) {
     const tweetIds = [];
 
     try {
@@ -252,6 +282,9 @@ async function postThread(tweets, imagePath) {
             }
         }
 
+        // Update frontmatter with publish date after successful posting
+        await updatePublishDate(filePath);
+
         return tweetIds;
     } catch (error) {
         console.error('Error posting tweet:', error.message);
@@ -297,7 +330,7 @@ async function main() {
         }
 
         // Post the thread
-        await postThread(tweets, imagePath);
+        await postThread(tweets, imagePath, fullPath);
         console.log('Thread posted successfully! 🎉');
     } catch (error) {
         console.error('Error:', error.message);
