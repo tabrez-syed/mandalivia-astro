@@ -1,6 +1,6 @@
 ---
 publishDate: 2024-12-10
-rating: 
+rating: 6
 review: 
 excerpt: What if I told you that one of the world's most popular apples was created by accident and almost ended up in a compost heap? The story of the Honeycrisp apple teaches us that sometimes the best things can't be had whenever we want them.
 title: The Apple That Almost Wasn't
