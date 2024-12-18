@@ -4,7 +4,7 @@ rating: 9
 review: 
 excerpt: Would you choose a method that works better if it meant looking silly? The story of basketball's most effective - but unused - technique reveals how much we care about appearance over results.
 title: The Price of Looking Cool
-image: 
+image: ../../assets/images/2024-12-13-looks-over-results.webp
 imageprompt: an XKCD-style pencil sketch showing a split scene - on one side, a basketball player shooting a traditional free throw with a crowd cheering, on the other side, a player doing an underhand shot with the crowd looking confused
 ---
 

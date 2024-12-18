@@ -4,7 +4,7 @@ rating: 6
 review: 
 excerpt: What's more important in mastering a skill - perfect technique or a calm mind? A story about an archer's challenge reveals the surprising answer.
 title: The Mind Behind the Bow
-image: 
+image: ../../assets/images/2024-12-16-archers-mind.webp
 imageprompt: an XKCD-style pencil sketch showing a split scene - on one side, an archer performing a fancy trick shot splitting an arrow, on the other side, the same archer trembling on a ladder unable to shoot
 ---
 ![[../../assets/images/2024-12-16-archers-mind.webp|center|500]]
