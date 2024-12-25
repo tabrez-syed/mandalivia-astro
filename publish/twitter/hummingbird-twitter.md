@@ -1,5 +1,8 @@
 ---
 image: src/assets/images/2024-11-20-hummingbird.webp
+publish-date: '2024-12-18'
+platforms:
+  bluesky: published
 ---
 
 🧵 Here's a puzzle nature had to solve: How do you design a bird that needs to hover in front of flowers but can't have big wings?
