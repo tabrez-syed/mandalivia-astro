@@ -81,13 +81,19 @@ export class ThreadPublisher {
         // Post to BlueSky
         if (this.services.bluesky) {
             console.log('Posting to BlueSky...');
-            let lastPostId = null;
+            let rootId = null;
+            let parentId = null;
             for (let i = 0; i < posts.length; i++) {
                 console.log(`Posting to BlueSky ${i + 1}/${posts.length}...`);
-                lastPostId = await this.services.bluesky.createPost(posts[i], {
+                const postId = await this.services.bluesky.createPost(posts[i], {
                     mediaId: i === 0 ? mediaId : null,
-                    replyToId: lastPostId
+                    rootId: rootId,
+                    parentId: parentId
                 });
+                if (i === 0) {
+                    rootId = postId;
+                }
+                parentId = postId;
                 console.log('✓ Posted successfully to BlueSky\n');
             }
             platformStatus.bluesky = 'published';

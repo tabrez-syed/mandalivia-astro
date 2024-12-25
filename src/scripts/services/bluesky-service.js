@@ -51,7 +51,7 @@ export class BlueSkyService extends BaseService {
         }
     }
 
-    async createPost(post, { mediaId, replyToId } = {}) {
+    async createPost(post, { mediaId, rootId, parentId } = {}) {
         try {
             // Create rich text object for proper text formatting
             const rt = new RichText({ text: post });
@@ -60,10 +60,10 @@ export class BlueSkyService extends BaseService {
             const postData = {
                 text: rt.text,
                 facets: rt.facets,
-                ...(replyToId && {
+                ...(parentId && {
                     reply: {
-                        root: { uri: replyToId.uri, cid: replyToId.cid },
-                        parent: { uri: replyToId.uri, cid: replyToId.cid }
+                        root: rootId ? { uri: rootId.uri, cid: rootId.cid } : { uri: parentId.uri, cid: parentId.cid },
+                        parent: { uri: parentId.uri, cid: parentId.cid }
                     }
                 })
             };

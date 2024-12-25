@@ -69,7 +69,7 @@ These guidelines help transform educational letters into engaging Twitter thread
 2. **Language Adjustments**
 
    - Write at a higher reading level than letters
-   - Use shorter sentences
+   - Use shorter sentences. Use line breaks to improve readability.
    - Embrace platform-specific language
    - Include strategic emojis (1-2 per tweet)
    - Avoid hyperbole and sensationalism
